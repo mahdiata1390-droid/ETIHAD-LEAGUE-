@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>جدول لیگ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      direction: rtl;
+      background: #f4f4f4;
+      padding: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 6px;
+      font-size: 14px;
+      text-align: center;
+    }
+    th {
+      background: #2c3e50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h3>جدول لیگ فوتبال</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>رتبه</th>
+      <th>تیم</th>
+      <th>بازی</th>
+      <th>برد</th>
+      <th>مساوی</th>
+      <th>باخت</th>
+      <th>گل+</th>
+      <th>گل-</th>
+      <th>تفاضل</th>
+      <th>امتیاز</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+const teams = [
+  {name:"تیم A", played:3, win:2, draw:1, lose:0, gf:5, ga:2},
+  {name:"تیم B", played:3, win:2, draw:0, lose:1, gf:4, ga:3},
+  {name:"تیم C", played:3, win:1, draw:1, lose:1, gf:3, ga:3}
+];
+
+teams.forEach(t => {
+  t.points = t.win * 3 + t.draw;
+  t.diff = t.gf - t.ga;
+});
+
+teams.sort((a,b) => b.points - a.points || b.diff - a.diff);
+
+const body = document.getElementById("tableBody");
+
+teams.forEach((t,i)=>{
+  body.innerHTML += `
+    <tr>
+      <td>${i+1}</td>
+      <td>${t.name}</td>
+      <td>${t.played}</td>
+      <td>${t.win}</td>
+      <td>${t.draw}</td>
+      <td>${t.lose}</td>
+      <td>${t.gf}</td>
+      <td>${t.ga}</td>
+      <td>${t.diff}</td>
+      <td>${t.points}</td>
+    </tr>
+  `;
+});
+</script>
+
+</body>
+</html>
