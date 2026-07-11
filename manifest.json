@@ -1,0 +1,15 @@
+{
+  "name": "لیگ من",
+  "short_name": "لیگ من",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B3D2E",
+  "theme_color": "#0B3D2E",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "fa",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
